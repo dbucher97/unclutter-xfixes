@@ -83,6 +83,10 @@ static void x_check_cb(EV_P_ ev_check *w, int revents) {
             last_cursor_pos.y = root_y;
         }
 
+        if (config.once){
+            exit(0);
+        }
+
         /* We don't bother checking the exact event since we only select events that interest us. */
         cursor_show();
         ev_timer_again(loop, idle_watcher);
